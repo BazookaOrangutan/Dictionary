@@ -1,0 +1,15 @@
+D:\C#\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.exe
+D:\C#\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.deps.json
+D:\C#\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.runtimeconfig.json
+D:\C#\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.dll
+D:\C#\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.pdb
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.csproj.AssemblyReference.cache
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.AssemblyInfoInputs.cache
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.AssemblyInfo.cs
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.csproj.CoreCompileInputs.cache
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.dll
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\refint\Dictionaries.dll
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.pdb
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.genruntimeconfig.cache
+D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\ref\Dictionaries.dll
