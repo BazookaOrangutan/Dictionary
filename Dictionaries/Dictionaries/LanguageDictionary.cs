@@ -9,9 +9,20 @@ namespace Dictionaries
     internal class LanguageDictionary<W>
     {
         private Dictionary<W, List<string>> dictionary = new Dictionary<W, List<string>>();
-        public void AddWord(W word, List<string> translate)
+        public void AddWord(W word, string translate)
         {
-            dictionary[word] = translate; 
+            dictionary[word].Add(translate); 
         }
+        public void RemoveWord(W word)
+        {
+            dictionary.Remove(word);
+        }
+        public void ReplaceWord(W oldWord, W newWord)
+        {
+            dictionary[newWord] = dictionary[oldWord];
+            dictionary.Remove(oldWord);
+        }
+
+
     }
 }

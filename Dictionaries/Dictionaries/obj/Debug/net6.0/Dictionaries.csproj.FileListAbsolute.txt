@@ -13,3 +13,17 @@ D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\refint\Dictionaries.dll
 D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.pdb
 D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.genruntimeconfig.cache
 D:\C#\Dictionaries\Dictionaries\obj\Debug\net6.0\ref\Dictionaries.dll
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.exe
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.deps.json
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.runtimeconfig.json
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.dll
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\bin\Debug\net6.0\Dictionaries.pdb
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.dll
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\refint\Dictionaries.dll
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.pdb
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\Dictionaries.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Dictionary-main\Dictionaries\Dictionaries\obj\Debug\net6.0\ref\Dictionaries.dll
