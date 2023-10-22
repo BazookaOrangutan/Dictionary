@@ -3,56 +3,90 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Dictionaries
 {
-    internal class LanguageDictionary<W>
+    internal class LanguageDictionary
     {
-        private Dictionary<W, List<string>> dictionary = new Dictionary<W, List<string>>();
-        public string Name { get; init; }
-        public void AddWord(W word, string translate)
+        private Dictionary<string, List<string>> _dictionary;
+        public string Type { get; init; }
+
+        public LanguageDictionary(string type)
         {
-            dictionary[word].Add(translate); 
+            _dictionary = new Dictionary<string, List<string>>();
+            Type = type;
+            //var xdoc = new XDocument();
+            //var dictionaryXml = new XElement("dictionary");
+            //xdoc.Add(dictionaryXml);
+            //xdoc.Save($"{Type}.xml");
+            XmlHelper.CreateXml(Type);
         }
-        public bool RemoveWord(W word)
+        public void AddWord(string word, string translate)
         {
-            if (dictionary.ContainsKey(word))
+            if(!_dictionary.ContainsKey(word)) 
+                _dictionary.Add(word, new List<string>());
+            _dictionary[word].Add(translate); 
+        }
+        public bool RemoveWord(string word)
+        {
+            if (_dictionary.ContainsKey(word))
             {
-                dictionary.Remove(word);
+                _dictionary.Remove(word);
                 return true;
             }
             throw new Exception($"Слово \"{word}\" отсутствует в словаре");
                 
         }
-        public bool ReplaceWord(W oldWord, W newWord)
+        public bool ReplaceWord(string oldWord, string newWord)
         {
-            if (dictionary.ContainsKey(oldWord))
+            if (_dictionary.ContainsKey(oldWord))
             {
-                dictionary[newWord] = dictionary[oldWord];
-                dictionary.Remove(oldWord);
+                _dictionary[newWord] = _dictionary[oldWord];
+                _dictionary.Remove(oldWord);
                 return true;
             }
             throw new Exception($"Слово \"{oldWord}\" отсутствует в словаре");
 
         }
-        public bool RemoveTranslate(W word, string translate)
+        public bool RemoveTranslate(string word, string translate)
         {
-            if (dictionary.ContainsKey(word))
+            if (_dictionary.ContainsKey(word))
             {
-                if (dictionary[word].Contains(translate))
+                if (_dictionary[word].Contains(translate))
                 {
-                    dictionary[word].Remove(translate);
+                    if (_dictionary[word].Count != 1)
+                    {
+                        _dictionary[word].Remove(translate);
+                        return true;
+                    }
+                    else throw new Exception($"Нельзя удалить единственный вариянт перевода");
+                }
+                else throw new Exception($"Перевод \"{translate}\" отсутствует у слова {word}");
+            }
+            throw new Exception($"Слово {word} отсутствует в словаре");
+        }
+        public bool ReplaceTranslate(string word, string oldTranslate, string newTranslate)
+        {
+            if (_dictionary.ContainsKey(word))
+            {
+                if (_dictionary[word].Contains(oldTranslate))
+                {
+                    _dictionary[word][_dictionary[word].IndexOf(oldTranslate)] = newTranslate;
                     return true;
                 }
-                throw new Exception($"Слово {word} отсутствует в словаре");
+                else throw new Exception($"Перевод \"{oldTranslate}\" отсутствует у слова {word}");
             }
-            throw new Exception($"Перевод \"{translate}\" отсутствует у слова {word}");
+            throw new Exception($"Слово {word} отсутствует в словаре");
         }
-        public void ReplaceTranslate(W word, string oldTranslate, string newTranslate)
+        public List<string> SearchTranslate(string word)
         {
-            dictionary[word][dictionary[word].IndexOf(oldTranslate)] = newTranslate;
+            if (_dictionary.ContainsKey(word))
+            {
+                return _dictionary[word];
+            }
+            throw new Exception($"Слово {word} отсутствует в словаре");
         }
-
 
     }
 }
