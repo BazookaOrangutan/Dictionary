@@ -16,6 +16,28 @@ namespace Dictionaries
             xdoc.Add(dictionaryXml);
             xdoc.Save($"{name}.xml");
         }
+
+        public static void AddWord(string path, string word, string translate)
+        {
+            var xdoc = XDocument.Load(path);
+            var dictionaryElement = xdoc.Element("dictionary");
+            XElement wordElement;
+            // Если word еще нет в файле
+
+            if (dictionaryElement?.Elements(word).Count() != 0)
+            {
+                wordElement = new XElement(word);
+               
+            }
+            // Если есть
+            else
+            {
+                wordElement = xdoc.Element(word);
+            }
+            wordElement?.Add("translate", translate);
+            dictionaryElement?.Add(wordElement);
+
+        }
         //public XmlHelper(string name) 
         //{
         //    var xdoc = new XDocument();
