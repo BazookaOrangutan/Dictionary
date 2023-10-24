@@ -64,6 +64,27 @@ namespace Dictionaries
             var xdoc = XDocument.Load(path);
             var dictionaryElement = xdoc.Element("dictionary");
             var wordElement = dictionaryElement?.Element(word);
+            wordElement?.Elements("translate")?
+                .Where(t => t.Value == translate)
+                .Remove();
+            xdoc.Save("test1.xml");
+        }
+
+        public static void ReplaceTranslate(string path, string word, string oldTranslate, string newTranslate)
+        {
+            var xdoc = XDocument.Load(path);
+            var dictionaryElement = xdoc.Element("dictionary");
+            var wordElement = dictionaryElement?.Element(word);
+            var translateElement = wordElement?.Elements("translate")?
+                .Where(t => t.Value == oldTranslate)
+                .Select(t => t).First();
+            translateElement.Value = newTranslate; 
+            xdoc.Save(path);
+        }
+        
+        public static void Search(string path, string word)
+        {
+            var xdoc = XDocument.Load(path);
 
         }
 

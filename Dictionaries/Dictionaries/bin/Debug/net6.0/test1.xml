@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dictionary>
-  <elem1>elemName</elem1>
-  <word>
-    <translate>t2222228888</translate>
-  </word>
+  <word1>
+    <translate>translate1</translate>
+  </word1>
+  <word2 />
 </dictionary>

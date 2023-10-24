@@ -46,17 +46,17 @@ using System.Xml.Linq;
 //XElement wordElement;
 //// Если word еще нет в файле
 
-//if (dictionaryElement?.Elements("word228").Count() == 0)
+//if (dictionaryElement?.Elements("word").Count() == 0)
 //{
-//    wordElement = new XElement("word228");
+//    wordElement = new XElement("word");
 //    dictionaryElement?.Add(wordElement);
 //}
 //// Если есть
 //else
 //{
-//    wordElement = dictionaryElement.Element("word228");
+//    wordElement = dictionaryElement.Element("word");
 //}
-//wordElement?.Add(new XElement("translate", "t2222228888"));
+//wordElement?.Add(new XElement("translate", "rrrr"));
 //xdoc.Save("test1.xml");
 
 
@@ -75,3 +75,19 @@ using System.Xml.Linq;
 //if (oldWordElement != null)
 //    oldWordElement.Name = "word";
 //xdoc.Save("test1.xml");
+
+//var xdoc = XDocument.Load("test1.xml");
+//var dictionaryElement = xdoc.Element("dictionary");
+//var wordElement = dictionaryElement?.Element("word");
+//wordElement?.Elements("translate")?
+//    .Where(t => t.Value == "car")
+//    .Remove();
+//xdoc.Save("test1.xml");
+
+//XmlHelper.ReplaceTranslate("test1.xml", "word", "rrrr", "fffff");
+//XmlHelper.AddWord("test1.xml", "word2", "translate1");
+//XmlHelper.RemoveTranslate("test1.xml", "word", "rrrr");
+//XmlHelper.RemoveWord("test1.xml", "elem1");
+//XmlHelper.ReplaceWord("test1.xml", "word", "word1");
+//XmlHelper.RemoveTranslate("test1.xml", "word2", "translate1");
+//XmlHelper.ReplaceTranslate("test1.xml", "word1", "tra222", "translate1");
