@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Dictionaries
@@ -22,22 +23,51 @@ namespace Dictionaries
             var xdoc = XDocument.Load(path);
             var dictionaryElement = xdoc.Element("dictionary");
             XElement wordElement;
-            // Если word еще нет в файле
-
-            if (dictionaryElement?.Elements(word).Count() != 0)
+            
+            if (dictionaryElement?.Elements(word).Count() == 0) // Если word еще нет в файле
             {
                 wordElement = new XElement(word);
-               
+                dictionaryElement?.Add(wordElement);
             }
-            // Если есть
-            else
+            else // Если есть
             {
-                wordElement = xdoc.Element(word);
+                wordElement = dictionaryElement.Element(word);
             }
-            wordElement?.Add("translate", translate);
-            dictionaryElement?.Add(wordElement);
+            wordElement?.Add(new XElement("translate", translate));
+            xdoc.Save(path);
+        }
+
+        public static void RemoveWord(string path, string word)
+        {
+            var xdoc = XDocument.Load(path);
+            var dictionaryElement = xdoc.Element("dictionary");
+            var wordElement = dictionaryElement.Element(word);
+            if (wordElement != null)
+            {
+                wordElement.Remove();
+            }
+            xdoc.Save(path);
+        }
+
+        public static void ReplaceWord(string path, string oldWord, string newWord)
+        {
+            var xdoc = XDocument.Load(path);
+            var dictionaryElement = xdoc.Element("dictionary");
+            var oldWordElement = dictionaryElement?.Element(oldWord);
+            if(oldWordElement != null)
+                oldWordElement.Name = newWord;
+            xdoc.Save(path);
+        }
+
+        public static void RemoveTranslate(string path, string word, string translate)
+        {
+            var xdoc = XDocument.Load(path);
+            var dictionaryElement = xdoc.Element("dictionary");
+            var wordElement = dictionaryElement?.Element(word);
 
         }
+
+
         //public XmlHelper(string name) 
         //{
         //    var xdoc = new XDocument();
