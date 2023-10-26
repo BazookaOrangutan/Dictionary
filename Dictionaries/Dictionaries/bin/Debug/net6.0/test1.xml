@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dictionary>
+  <word2>
+    <translate>translate4</translate>
+  </word2>
   <word1>
-    <translate>translate1</translate>
+    <translate>translate</translate>
   </word1>
-  <word2 />
 </dictionary>

@@ -33,6 +33,7 @@ namespace Dictionaries
             {
                 wordElement = dictionaryElement.Element(word);
             }
+            //if (!wordElement?.Elements().Contains())
             wordElement?.Add(new XElement("translate", translate));
             xdoc.Save(path);
         }
@@ -41,11 +42,8 @@ namespace Dictionaries
         {
             var xdoc = XDocument.Load(path);
             var dictionaryElement = xdoc.Element("dictionary");
-            var wordElement = dictionaryElement.Element(word);
-            if (wordElement != null)
-            {
-                wordElement.Remove();
-            }
+            var wordElement = dictionaryElement?.Element(word);
+            wordElement?.Remove();
             xdoc.Save(path);
         }
 
@@ -54,8 +52,24 @@ namespace Dictionaries
             var xdoc = XDocument.Load(path);
             var dictionaryElement = xdoc.Element("dictionary");
             var oldWordElement = dictionaryElement?.Element(oldWord);
+            var newWordElement = dictionaryElement?.Element(newWord);
             if(oldWordElement != null)
+            {
+                if (newWordElement != null)
+                {
+
+                    oldWordElement.Add(newWordElement.Elements());
+                    foreach (var item in oldWordElement.Elements())
+                    {
+                        if (oldWordElement.Elements(item.Name).Count() > 1)
+                        {
+                            item.Remove();
+                        }
+                    }
+                    newWordElement.Remove();
+                }
                 oldWordElement.Name = newWord;
+            }
             xdoc.Save(path);
         }
 
@@ -64,9 +78,12 @@ namespace Dictionaries
             var xdoc = XDocument.Load(path);
             var dictionaryElement = xdoc.Element("dictionary");
             var wordElement = dictionaryElement?.Element(word);
-            wordElement?.Elements("translate")?
-                .Where(t => t.Value == translate)
-                .Remove();
+            if (wordElement?.Elements().Count() > 1) 
+            { 
+                 wordElement?.Elements("translate")?
+                    .Where(t => t.Value == translate)
+                    .Remove();
+            }
             xdoc.Save("test1.xml");
         }
 
@@ -76,15 +93,28 @@ namespace Dictionaries
             var dictionaryElement = xdoc.Element("dictionary");
             var wordElement = dictionaryElement?.Element(word);
             var translateElement = wordElement?.Elements("translate")?
-                .Where(t => t.Value == oldTranslate)
-                .Select(t => t).First();
-            translateElement.Value = newTranslate; 
+                .Where(t => t.Value == oldTranslate).First();
+            foreach(var item in wordElement?.Elements())
+            {
+                if (item.Value == newTranslate) item.Remove();
+            }
+            if (translateElement != null)
+            {
+                translateElement.Value = newTranslate; 
+            }
             xdoc.Save(path);
         }
         
-        public static void Search(string path, string word)
+        public static string Search(string path, string word)
         {
             var xdoc = XDocument.Load(path);
+            var translates = xdoc.Element("dictionary")?.Element(word)?.Elements("translate");
+            string str = $"{word} - ";
+            foreach(var item in translates)
+            {
+                str += item.Value + "; ";
+            }
+            return str;
 
         }
 

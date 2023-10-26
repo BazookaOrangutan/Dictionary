@@ -91,3 +91,25 @@ using System.Xml.Linq;
 //XmlHelper.ReplaceWord("test1.xml", "word", "word1");
 //XmlHelper.RemoveTranslate("test1.xml", "word2", "translate1");
 //XmlHelper.ReplaceTranslate("test1.xml", "word1", "tra222", "translate1");
+
+//XmlHelper.AddWord("test1.xml", "word1", "translate2");
+//XmlHelper.AddWord("test1.xml", "word1", "translate3");
+//XmlHelper.AddWord("test1.xml", "word2", "translate");
+
+//Console.WriteLine(XmlHelper.Search("test1.xml", "word1"));
+
+//XmlHelper.ReplaceWord("test1.xml", "word", "word1");
+var path = "test1.xml";
+//XmlHelper.RemoveWord(path, "word1");
+
+//XmlHelper.AddWord(path, "word1", "translate1");
+//XmlHelper.AddWord(path, "word1", "translate2");
+//XmlHelper.AddWord(path, "word1", "translate3");
+
+//XmlHelper.AddWord(path, "word2", "translate1");
+//XmlHelper.AddWord(path, "word2", "translate4");
+//XmlHelper.AddWord(path, "word2", "translate5");
+
+//XmlHelper.ReplaceWord(path, "word1", "word2");
+
+XmlHelper.RemoveTranslate(path, "word2", "translate3");
