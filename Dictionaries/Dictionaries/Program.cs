@@ -99,7 +99,7 @@ using System.Xml.Linq;
 //Console.WriteLine(XmlHelper.Search("test1.xml", "word1"));
 
 //XmlHelper.ReplaceWord("test1.xml", "word", "word1");
-var path = "test1.xml";
+//var path = "test1.xml";
 //XmlHelper.RemoveWord(path, "word1");
 
 //XmlHelper.AddWord(path, "word1", "translate1");
@@ -111,5 +111,24 @@ var path = "test1.xml";
 //XmlHelper.AddWord(path, "word2", "translate5");
 
 //XmlHelper.ReplaceWord(path, "word1", "word2");
+var dictionariesXml = new XDocument("dictionaries.xml");
+dictionariesXml?.Add(new XElement("dictionaries"));
+var dictionariesCollection = new List<string>();
+foreach(var dictionarie in dictionariesXml?.Element("dictionaries")?.Elements())
+{
+    dictionariesCollection.Add(dictionarie.Value);
+}
+var flag = false;
+while (true)
+{
+    if (flag)
+    {
+        Console.Clear();
+    }
+    Console.Clear();
+    Console.WriteLine("Введите название словаря, чтобы открыть существующий или создать новый");
+    var path = Console.ReadLine()+".xml";
+    if(!dictionariesCollection.Contains(path))
+        XmlHelper.CreateXml(path);
 
-XmlHelper.RemoveTranslate(path, "word2", "translate3");
+}
