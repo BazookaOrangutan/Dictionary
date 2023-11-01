@@ -20,7 +20,7 @@ namespace Dictionaries
             //var dictionaryXml = new XElement("dictionary");
             //xdoc.Add(dictionaryXml);
             //xdoc.Save($"{Type}.xml");
-            XmlHelper.CreateXml(Type);
+            XDictionaries.CreateXml(Type);
         }
         public void AddWord(string word, string translate)
         {

@@ -3,8 +3,11 @@
   <BedSheets>
     <translate>Кровать</translate>
   </BedSheets>
+  <Car>
+    <translate>Машина</translate>
+    <translate>Авто</translate>
+  </Car>
   <Word>
     <translate>Слово</translate>
   </Word>
-  <translate>Машина</translate>
 </dictionary>
